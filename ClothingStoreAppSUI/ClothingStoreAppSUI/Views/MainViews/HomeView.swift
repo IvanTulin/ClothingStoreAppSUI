@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State var presentSideMenu = false
+    @State private var selectedCategory: Int = 0
     
     private var categories = [Categories.All.rawValue, Categories.Apparel.rawValue, Categories.TShirt.rawValue, Categories.Bag.rawValue]
     
-    @State private var selectedCategory: Int = 0
+    
     
     var body: some View {
         ZStack {
@@ -31,6 +33,9 @@ struct HomeView: View {
                         Image(.dividing)
                             .resizable()
                             .frame(width: 150, height: 40)
+                        CollectionsView()
+                        TrendingHashtagsView()
+                        Spacer()
                     }
                     .edgesIgnoringSafeArea(.all)
                 }
@@ -39,12 +44,13 @@ struct HomeView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .overlay(alignment: .top) {
                 HeaderView {
-                    
+                    presentSideMenu.toggle()
                 } cartAction: {
                     
                 }
-
             }
+            
+            SideMenu()
         }
         .onAppear {
            // print(product2.images.count)
@@ -139,11 +145,30 @@ struct HomeView: View {
     @ViewBuilder
     private func CollectionsView() -> some View {
        Text("Collections")
+            .font(.largeTitle)
+            .foregroundStyle(.black)
+        
+        Image(.autumn)
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .frame(width: 384, alignment: .top)
+            .clipped()
+        
+        Image(.octoberCollection)
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .frame(width: 384, alignment: .top)
+            .clipped()
+        
+        Image(.dividing)
+            .resizable()
+            .frame(width: 150, height: 40)
+        
     }
     
     @ViewBuilder
     private func SideMenu() -> some View {
-        
+        SideView(isShowing: $presentSideMenu, content: AnyView(SideMenuViewContent(presentSideMenu: $presentSideMenu)), direction: .leading)
     }
     
     @ViewBuilder
