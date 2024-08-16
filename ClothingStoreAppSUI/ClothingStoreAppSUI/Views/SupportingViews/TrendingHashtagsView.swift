@@ -10,7 +10,7 @@ import SwiftUI
 struct TrendingHashtagsView: View {
     var body: some View {
         VStack {
-            Text("@Trendinsg")
+            Text("@Trendings")
                 .font(.headline)
                 .multilineTextAlignment(.center)
             

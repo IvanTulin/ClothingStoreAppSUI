@@ -59,7 +59,7 @@ struct SideMenuViewContent: View {
                     
                     ForEach(0..<categories.count, id: \.self) { item in
                         createCategoryItem(title: categories[item]) {
-                            
+        
                         }
                     }
                     

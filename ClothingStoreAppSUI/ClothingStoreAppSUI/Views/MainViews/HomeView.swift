@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State var presentSideMenu = false
+    @State var presentSideCart = false
     @State private var selectedCategory: Int = 0
     
     private var categories = [Categories.All.rawValue, Categories.Apparel.rawValue, Categories.TShirt.rawValue, Categories.Bag.rawValue]
@@ -46,11 +47,12 @@ struct HomeView: View {
                 HeaderView {
                     presentSideMenu.toggle()
                 } cartAction: {
-                    
+                    presentSideCart.toggle()
                 }
             }
             
             SideMenu()
+            SideCart()
         }
         .onAppear {
            // print(product2.images.count)
@@ -173,7 +175,7 @@ struct HomeView: View {
     
     @ViewBuilder
     private func SideCart() -> some View {
-        
+        SideView(isShowing: $presentSideCart, content: AnyView(SideCartViewContent(presentSideMenu: $presentSideCart)), direction: .leading)
     }
     
     
