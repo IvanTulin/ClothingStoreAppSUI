@@ -11,24 +11,28 @@ struct ProductItemView: View {
     var product: Product
     
     var body: some View {
-        VStack {
-            Image(product.images[0])
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 165, height: 200)
-                .cornerRadius(5)
-            .shadow(radius: 1)
-            
-            Text(product.tittle)
-                .font(.caption2)
-                .multilineTextAlignment(.center)
-                .foregroundColor(.bodyGray)
-                .frame(width: 165, alignment: .top)
-            
-            Text("$\(product.price)")
-                .font(.callout)
-                .foregroundColor(.default)
-                .padding(.top, 2)
+        NavigationLink {
+            ProductDetailsView(product: product)
+        } label: {
+            VStack {
+                Image(product.images[0])
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 165, height: 200)
+                    .cornerRadius(5)
+                .shadow(radius: 1)
+                
+                Text(product.tittle)
+                    .font(.caption2)
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.bodyGray)
+                    .frame(width: 165, alignment: .top)
+                
+                Text("$\(product.price)")
+                    .font(.callout)
+                    .foregroundColor(.default)
+                    .padding(.top, 2)
+            }
         }
         
         

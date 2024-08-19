@@ -106,10 +106,47 @@ struct ProductDetailsView: View {
                     presentSideCart.toggle()
                 }
             }
+            .overlay(alignment: .bottom) {
+                ZStack {
+                    Button {
+                        
+                    } label: {
+                        HStack {
+                            Image(systemName: "plus")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 24, height: 24)
+                                .foregroundColor(.white)
+                            
+                            Text("Add to basket")
+                                .font(.title2)
+                                .kerning(0.14)
+                                .foregroundStyle(.white)
+                            
+                            Spacer()
+                            
+                            Image(systemName: "heart")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 24, height: 24)
+                                .tint(.white)
+                        }
+                        .padding([.leading, .trailing], 24)
+                    }
+                    
+
+                }
+                .frame(height: 66)
+                .frame(maxWidth: .infinity)
+                .background(.black)
+            }
+            
             
             SideMenu()
             SideCart()
         }
+        .navigationBarHidden(true)
+        .ignoresSafeArea(edges: .bottom)
     }
     
     @ViewBuilder

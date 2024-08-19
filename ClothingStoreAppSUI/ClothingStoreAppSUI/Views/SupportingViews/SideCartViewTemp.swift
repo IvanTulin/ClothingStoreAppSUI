@@ -47,8 +47,8 @@ struct SideCartViewContent: View {
                 createEmptyCartView()
             }
             
-            Button {
-                
+            NavigationLink {
+                CheckoutView()
             } label: {
                 HStack {
                     Image(systemName: "bag")
@@ -63,6 +63,8 @@ struct SideCartViewContent: View {
                 .background(.black)
                 .foregroundColor(.white)
             }
+
+            
 
         }
         .onAppear {

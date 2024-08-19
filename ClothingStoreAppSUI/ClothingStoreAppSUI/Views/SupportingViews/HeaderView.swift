@@ -28,10 +28,15 @@ struct HeaderView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 20)
                 
-                Image("fashionUnited")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 124, height: 54)
+                NavigationLink {
+                    HomeView()
+                } label: {
+                    Image("fashionUnited")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 124, height: 54)
+                }
+
                     
                     
                 Button(action: {

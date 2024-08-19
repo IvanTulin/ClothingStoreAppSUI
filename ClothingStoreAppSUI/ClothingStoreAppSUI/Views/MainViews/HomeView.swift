@@ -17,73 +17,82 @@ struct HomeView: View {
     
     
     var body: some View {
-        ZStack {
-            Color.white.edgesIgnoringSafeArea(.all)
+        NavigationStack {
             ZStack {
-                VStack(spacing: 10) {
-                    ScrollView(.vertical) {
-                        HeroImageView()
-                        NewArrivalView()
-                        Spacer()
-                        Image(.dividing)
-                            .resizable()
-                            .frame(width: 150, height: 40)
-                        Image(.brands2)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                        Image(.dividing)
-                            .resizable()
-                            .frame(width: 150, height: 40)
-                        CollectionsView()
-                        TrendingHashtagsView()
-                        Spacer()
+                Color.white.edgesIgnoringSafeArea(.all)
+                ZStack {
+                    VStack(spacing: 10) {
+                        ScrollView(.vertical) {
+                            HeroImageView()
+                            NewArrivalView()
+                            Spacer()
+                            Image(.dividing)
+                                .resizable()
+                                .frame(width: 150, height: 40)
+                            Image(.brands2)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                            Image(.dividing)
+                                .resizable()
+                                .frame(width: 150, height: 40)
+                            CollectionsView()
+                            TrendingHashtagsView()
+                            Spacer()
+                        }
+                        .edgesIgnoringSafeArea(.all)
                     }
-                    .edgesIgnoringSafeArea(.all)
+                    .padding(.top)
                 }
-                .padding(.top)
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .overlay(alignment: .top) {
-                HeaderView {
-                    presentSideMenu.toggle()
-                } cartAction: {
-                    presentSideCart.toggle()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .overlay(alignment: .top) {
+                    HeaderView {
+                        presentSideMenu.toggle()
+                    } cartAction: {
+                        presentSideCart.toggle()
+                    }
                 }
+                
+                SideMenu()
+                SideCart()
             }
-            
-            SideMenu()
-            SideCart()
+            .onAppear {
+               // print(product2.images.count)
+            }
         }
-        .onAppear {
-           // print(product2.images.count)
-        }
+        .navigationBarHidden(true)
+        
     }
     
     @ViewBuilder
     private func HeroImageView() -> some View {
-        ZStack {
-            Image("backgroundVertical")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(maxHeight: .infinity)
-                .frame(height: 620)
-            
-            Button {
-                print("Explore Collection button clicked")
-            } label: {
-                RoundedRectangle(cornerRadius: 30)
-                    .overlay {
-                        Text("Explore Collection")
-                            .font(.system(size: 20))
-                            .foregroundStyle(.white)
-                    }
-                   
-                    
+        NavigationLink {
+            ProductListView()
+        } label: {
+            ZStack {
+                Image("backgroundVertical")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxHeight: .infinity)
+                    .frame(height: 620)
+                
+                Button {
+                    print("Explore Collection button clicked")
+                } label: {
+                    RoundedRectangle(cornerRadius: 30)
+                        .overlay {
+                            Text("Explore Collection")
+                                .font(.system(size: 20))
+                                .foregroundStyle(.white)
+                        }
+                       
+                        
+                }
+                .frame(width: 253, height: 40)
+                .tint(.black.opacity(0.4))
+                .offset(.init(width: 0, height: 250))
             }
-            .frame(width: 253, height: 40)
-            .tint(.black.opacity(0.4))
-            .offset(.init(width: 0, height: 250))
         }
+
     }
     
     @ViewBuilder
@@ -146,25 +155,30 @@ struct HomeView: View {
     
     @ViewBuilder
     private func CollectionsView() -> some View {
-       Text("Collections")
-            .font(.largeTitle)
-            .foregroundStyle(.black)
+        Text("Collections")
+             .font(.largeTitle)
+             .foregroundStyle(.black)
         
-        Image(.autumn)
-            .resizable()
-            .aspectRatio(contentMode: .fill)
-            .frame(width: 384, alignment: .top)
-            .clipped()
-        
-        Image(.octoberCollection)
-            .resizable()
-            .aspectRatio(contentMode: .fill)
-            .frame(width: 384, alignment: .top)
-            .clipped()
+        NavigationLink {
+            ProductListView()
+        } label: {
+//             Image(.autumn)
+//                 .resizable()
+//                 .aspectRatio(contentMode: .fill)
+//                 .frame(width: 384, alignment: .top)
+//                 .clipped()
+             
+             Image(.octoberCollection)
+                 .resizable()
+                 .aspectRatio(contentMode: .fill)
+                 .frame(width: 384, alignment: .top)
+                 .clipped()
+        }
         
         Image(.dividing)
             .resizable()
             .frame(width: 150, height: 40)
+
         
     }
     
