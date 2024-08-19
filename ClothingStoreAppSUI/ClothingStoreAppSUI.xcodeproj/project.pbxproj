@@ -30,6 +30,7 @@
 		BAE9613A2C5BACF5008E72E1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE961392C5BACF5008E72E1 /* Constants.swift */; };
 		BAE9613C2C5BAD03008E72E1 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE9613B2C5BAD03008E72E1 /* Enums.swift */; };
 		BAE961402C5BAD53008E72E1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE9613F2C5BAD53008E72E1 /* HomeView.swift */; };
+		BAF7A1DF2C73ACC70080B4B8 /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF7A1DE2C73ACC70080B4B8 /* CheckoutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		BAE961392C5BACF5008E72E1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BAE9613B2C5BAD03008E72E1 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		BAE9613F2C5BAD53008E72E1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		BAF7A1DE2C73ACC70080B4B8 /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 				BAD648BE2C6E19DF00ABE865 /* SideMenuView.swift */,
 				BAD330052C6F2E37002EE619 /* ProductListView.swift */,
 				BA8E4D132C6F7F9B0077E14E /* ProductDetailsView.swift */,
+				BAF7A1DE2C73ACC70080B4B8 /* CheckoutView.swift */,
 			);
 			path = MainViews;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				BAE9613C2C5BAD03008E72E1 /* Enums.swift in Sources */,
 				BAD32FFE2C6F1215002EE619 /* SideCartViewTemp.swift in Sources */,
 				BA8E4D142C6F7F9B0077E14E /* ProductDetailsView.swift in Sources */,
+				BAF7A1DF2C73ACC70080B4B8 /* CheckoutView.swift in Sources */,
 				BA47FE2D2C6CF5C900021874 /* Color+Extensions.swift in Sources */,
 				BAD648B92C6E0A6900ABE865 /* TrendingHashtagsView.swift in Sources */,
 				BA47FE312C6D16FB00021874 /* CategortView.swift in Sources */,
